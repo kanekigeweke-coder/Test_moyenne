@@ -570,44 +570,45 @@ with col2:
                     "Information complémentaire",
                     ["Écart-type de la population", "Variance de la population"]
                 )
+
+                if choix_optionnel == "Écart-type de la population":
+                    ecart_type = st.number_input(
+                        "Valeur de l'écart-type de la population",
+                        min_value=0.0,
+                        value=1.0,
+                        step=0.1
+                    )
+                elif choix_optionnel == "Variance de la population":
+                    variance = st.number_input(
+                        "Valeur de la variance de la population",
+                        min_value=0.0,
+                        value=1.0,
+                        step=0.1
+                    )
+
             else:
                 choix_optionnel = st.selectbox(
                     "Information complémentaire",
                     [
-                        "Ne s'applique pas",
                         "Écart-type empirique de l'échantillon",
                         "Variance empirique de l'échantillon"
                     ]
                 )
 
-            if choix_optionnel == "Écart-type de la population":
-                ecart_type = st.number_input(
-                    "Valeur de l'écart-type de la population",
-                    min_value=0.0,
-                    value=1.0,
-                    step=0.1
-                )
-            elif choix_optionnel == "Variance de la population":
-                variance = st.number_input(
-                    "Valeur de la variance de la population",
-                    min_value=0.0,
-                    value=1.0,
-                    step=0.1
-                )
-            elif choix_optionnel == "Écart-type empirique de l'échantillon":
-                ecart_type = st.number_input(
-                    "Valeur de l'écart-type empirique de l'échantillon",
-                    min_value=0.0,
-                    value=4.0,
-                    step=0.1
-                )
-            elif choix_optionnel == "Variance empirique de l'échantillon":
-                variance = st.number_input(
-                    "Valeur de la variance empirique de l'échantillon",
-                    min_value=0.0,
-                    value=16.0,
-                    step=0.1
-                )
+                if choix_optionnel == "Écart-type empirique de l'échantillon":
+                    ecart_type = st.number_input(
+                        "Valeur de l'écart-type empirique de l'échantillon",
+                        min_value=0.0,
+                        value=4.0,
+                        step=0.1
+                    )
+                elif choix_optionnel == "Variance empirique de l'échantillon":
+                    variance = st.number_input(
+                        "Valeur de la variance empirique de l'échantillon",
+                        min_value=0.0,
+                        value=16.0,
+                        step=0.1
+                    )
 
     else:
         n = st.number_input(
